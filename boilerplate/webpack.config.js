@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const webpack = require('webpack'); //to access built-in plugins
+const webpack = require('webpack'); //to access built-in plugins
 
 module.exports = {
   entry: {
@@ -12,11 +12,17 @@ module.exports = {
     filename: '[name].js'
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       title:'我的博客',
     }),
   ],
+  resolve: {
+    alias: {
+      Actions: path.resolve(__dirname, 'src/actions/'),
+    }
+  },
   module: {
     rules: [
       {

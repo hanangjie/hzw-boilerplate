@@ -5,6 +5,7 @@ export default class Welcome extends React.Component {
   render() {
     return <div>Hello, 
       <Link to='/demo' >链接</Link>
+      <Link to='/demo2' >链接2</Link>
       {this.props.default}
     </div>;
   }

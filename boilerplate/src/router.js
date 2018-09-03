@@ -20,6 +20,14 @@ export default [
             cb(null, require('./routes/demo/'));
           })
         }
+      },
+      {
+        path:'demo2',
+        getComponent(next, cb) {
+          require.ensure([], (reqiure) => {
+            cb(null, require('./routes/demo/demo2'));
+          })
+        }
       }
     ]
   }
