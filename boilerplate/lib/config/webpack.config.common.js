@@ -12,7 +12,7 @@ module.exports = {
     index: `${appDirectory}/src/index.js`
   },
   output: {
-    path: `dist`,
+    path: '/dist',
     filename: '[name].js'
   },
   plugins: [
