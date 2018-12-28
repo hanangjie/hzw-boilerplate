@@ -2,25 +2,29 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack'); //to access built-in plugins
+const fs = require('fs');
+
+const cwd = process.cwd();
+const appDirectory = fs.realpathSync(cwd);
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: `${appDirectory}/src/index.js`
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: `dist`,
     filename: '[name].js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: `${appDirectory}/src/index.html`,
       title:'我的博客',
     }),
   ],
   resolve: {
     alias: {
-      Actions: path.resolve(__dirname, 'src/actions/'),
+      Actions: `${appDirectory}/src/actions/`,
     }
   },
   module: {

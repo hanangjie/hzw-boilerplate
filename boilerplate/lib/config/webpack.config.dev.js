@@ -1,4 +1,4 @@
-const config = require('./webpack.config');
+const config = require('./webpack.config.common');
 const webpack = require('webpack');
 
 const commomConfig = Object.assign({
@@ -7,6 +7,7 @@ const commomConfig = Object.assign({
   devServer: {
     contentBase:'./dist',//设置热加载的文件访问路径
     port:9999,//端口
+    quiet: true,
     hotOnly:true,
   },
 }, config)

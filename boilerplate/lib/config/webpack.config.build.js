@@ -1,4 +1,4 @@
-const config = require('./webpack.config');
+const config = require('./webpack.config.common');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 config.plugins.unshift(new CleanWebpackPlugin(['dist']),)

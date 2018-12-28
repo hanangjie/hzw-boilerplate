@@ -7,7 +7,7 @@ import { setName } from 'Actions/demo';
 }))
 export default class Demo extends React.Component {
   changeName() {
-    this.props.dispatch(setName({name:'a'}));
+    this.props.dispatch(setName({name:'a23'}));
   }
   render() {
     return <h1 onClick={() => this.changeName()}>is demo2, {this.props.name}</h1>;

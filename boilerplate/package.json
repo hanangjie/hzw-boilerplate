@@ -4,8 +4,8 @@
   "description": "__description__",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.build.js",
+    "start": "node lib/runServer",
+    "build": "webpack --config ./lib/config/webpack.config.build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "__author__",
@@ -23,9 +23,11 @@
     "csv-loader": "^3.0.2",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "react-dev-utils": "^6.1.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.4",
     "webpack-cli": "^3.1.0",
+    "chalk": "^2.4.1",
     "webpack-dev-server": "^3.1.5",
     "xml-loader": "^1.2.1"
   },
