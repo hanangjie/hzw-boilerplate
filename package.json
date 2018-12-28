@@ -1,6 +1,6 @@
 {
   "name": "hzw-boilerplate",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "boilerplate for react quickstart",
   "main": "index.js",
   "scripts": {
