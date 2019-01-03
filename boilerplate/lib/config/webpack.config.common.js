@@ -6,13 +6,12 @@ const fs = require('fs');
 
 const cwd = process.cwd();
 const appDirectory = fs.realpathSync(cwd);
-
 module.exports = {
   entry: {
     index: `${appDirectory}/src/index.js`
   },
   output: {
-    path: '/dist',
+    path: `${appDirectory}/dist`,
     filename: '[name].js'
   },
   plugins: [
@@ -25,6 +24,7 @@ module.exports = {
   resolve: {
     alias: {
       Actions: `${appDirectory}/src/actions/`,
+      root: `${appDirectory}/src`,
     }
   },
   module: {

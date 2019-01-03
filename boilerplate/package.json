@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node lib/runServer",
-    "build": "webpack --config ./lib/config/webpack.config.build.js",
+    "build": "node lib/build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "__author__",
@@ -18,6 +18,7 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^2.4.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "csv-loader": "^3.0.2",
@@ -27,8 +28,8 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.16.4",
     "webpack-cli": "^3.1.0",
-    "chalk": "^2.4.1",
     "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.5",
     "xml-loader": "^1.2.1"
   },
   "dependencies": {

@@ -1,10 +1,29 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { dynamic } from 'root/utils/dynamic'
+
+
+function a(t) {
+  return dynamic(t);
+}
 
 export default class Demo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      path: 'demo/demo2'
+    }
+  }
+  changeDemo(v) {
+    this.setState({
+      path: v.target.value
+    })
+  }
   render() {
-    const a =import('./demo2.js')
-    console.log(a.toString());
-    return <h1 >is demo, {this.props.name}</h1>;
+    const A = a(() => import(`root/routes/${this.state.path}`))
+    return <div>
+      <input onChange={(e) => this.changeDemo(e)} />
+      is demo3,
+      <A >{this.props.name}</A>
+    </div>;
   }
 }

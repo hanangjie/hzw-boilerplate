@@ -22,10 +22,10 @@ export default [
         }
       },
       {
-        path:'demo2',
+        path:'demo_redux',
         getComponent(next, cb) {
           require.ensure([], (reqiure) => {
-            cb(null, require('./routes/demo/demo2'));
+            cb(null, require('./routes/demo/demo_redux'));
           })
         }
       }
