@@ -9,8 +9,14 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const config = require("./config/webpack.config.dev");
 
 
+const { port = 9999, host = '127.0.0.1', protocol = 'http' } = config.devServer;
+config.entry.index = [
+  `${require.resolve('webpack-dev-server/client/')}?http://${host}:${port}`,
+  require.resolve('webpack/hot/only-dev-server.js'),
+  config.entry.index
+]
 const compiler = webpack(config);
-const { port = 9999, host = '127.0.0.1', protocol = 'http' } = compiler.options.devServer;
+
 
 
 function start() {
@@ -51,7 +57,7 @@ compiler.plugin('done', (stats) => {
   
 });
 function runDevServer() {
-  const devServer = new WebpackDevServer(compiler);
+  const devServer = new WebpackDevServer(compiler, config.devServer);
   devServer.listen(port, host, (err) => {
     if (err) {
       return console.log(err);
