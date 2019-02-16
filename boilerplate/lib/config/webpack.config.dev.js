@@ -6,7 +6,7 @@ const commomConfig = Object.assign({
   mode: 'development',
   devServer: {
     contentBase:'./dist',//设置热加载的文件访问路径
-    port:9999,//端口
+    port:9998,//端口
     quiet: true,
     hotOnly:true,
   },

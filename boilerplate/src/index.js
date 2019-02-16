@@ -22,7 +22,7 @@ render(
   <Provider store={store}>
     <Router history={hashHistory} routes={routes} />
   </Provider>,
-  document.getElementById('root1')
+  document.getElementById('root')
 )
 
 if(module.hot) {
@@ -31,7 +31,7 @@ if(module.hot) {
       <Provider store={store}>
         <Router history={hashHistory} routes={routes} key={Math.random()} />
       </Provider>,
-      document.getElementById('root1')
+      document.getElementById('root')
     )
   })
 }

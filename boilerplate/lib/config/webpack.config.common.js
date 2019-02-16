@@ -40,7 +40,31 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
+          {
+            loader: 'css-loader',
+            options:{
+              modules: true,
+              localIdentName: '[local]_[hash:base64:5]',
+            }
+          },
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader' // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader',
+            options:{
+              modules: true,
+              localIdentName: '[local]_[hash:base64:5]',
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
         ]
       },
       {

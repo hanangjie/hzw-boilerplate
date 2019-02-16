@@ -1,4 +1,6 @@
 
+const openBrowser = require('react-dev-utils/openBrowser');
+
 const child_process = require('child_process');
 const webpack = require('webpack');
 const chalk = require('chalk');
@@ -8,7 +10,7 @@ const config = require("./config/webpack.config.dev");
 
 
 const compiler = webpack(config);
-const port = 9998;
+const { port = 9999, host = '127.0.0.1', protocol = 'http' } = compiler.options.devServer;
 
 
 function start() {
@@ -50,13 +52,15 @@ compiler.plugin('done', (stats) => {
 });
 function runDevServer() {
   const devServer = new WebpackDevServer(compiler);
-  devServer.listen(port, '127.0.0.1', (err) => {
+  devServer.listen(port, host, (err) => {
     if (err) {
       return console.log(err);
     }
     clearConsole();
     process.send('READY');
     console.log('Starting the development server...');
+    
+    openBrowser(`${protocol}://${host}:${port}/`);
   });
 }
 
