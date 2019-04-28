@@ -22,6 +22,9 @@ compiler.plugin('done', (stats) => {
       console.log(chalk.green(`Compiled successfully in ${(json.time / 1000).toFixed(1)}s!`));
     }
   }else {
+    console.log(stats.toString({
+      error: true
+    }));
     console.log(chalk.green(`Compiled error${(json.time / 1000).toFixed(1)}s!`));
   }
 });
@@ -31,7 +34,6 @@ compiler.run((err) => {
     console.log(err);
     process.exit(1);
   }
-  console.log('编译成功');
 })
 
 function clearConsole() {
