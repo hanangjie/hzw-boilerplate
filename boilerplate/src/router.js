@@ -1,5 +1,4 @@
-import App from './layouts/header';
-
+import Header from "./layouts/header";
 
 // const registerModel = (app, model) => {
 //   // eslint-disable-next-line
@@ -10,31 +9,40 @@ import App from './layouts/header';
 
 export default [
   {
-    path: '/',
-    components: App,
+    path: "/",
+    components: Header,
+    indexRoute: { onEnter: (nextState, replace) => replace("/index") },
     childRoutes: [
       {
-        path:'demo',
+        path: "index",
         getComponent(next, cb) {
-          require.ensure([], (reqiure) => {
-            cb(null, require('./routes/demo/'));
-          })
+          require.ensure([], reqiure => {
+            cb(null, require("./routes/blog/"));
+          });
         }
       },
       {
-        path:'demo1',
+        path: "demo",
         getComponent(next, cb) {
-          require.ensure([], (reqiure) => {
-            cb(null, require('./routes/demo/demo.js'));
-          })
+          require.ensure([], reqiure => {
+            cb(null, require("./routes/demo/"));
+          });
         }
       },
       {
-        path:'demo_redux',
+        path: "demo1",
         getComponent(next, cb) {
-          require.ensure([], (reqiure) => {
-            cb(null, require('./routes/demo/demo_redux'));
-          })
+          require.ensure([], reqiure => {
+            cb(null, require("./routes/demo/demo.js"));
+          });
+        }
+      },
+      {
+        path: "demo_redux",
+        getComponent(next, cb) {
+          require.ensure([], reqiure => {
+            cb(null, require("./routes/demo/demo_redux"));
+          });
         }
       }
     ]

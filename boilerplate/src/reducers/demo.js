@@ -1,19 +1,18 @@
-
-const demo = (state = {
-  name: '初始化',
- }, action) => {
+const demo = (
+  state = {
+    name: "初始化"
+  },
+  action
+) => {
   switch (action.type) {
-    case 'demo/setName':
-    console.log(action);
+    case "demo/setName":
       return {
         ...state,
-        ...action.subreddit,
-      }
+        ...action.subreddit
+      };
     default:
-      return state
+      return state;
   }
-}
-
-export {
-  demo
 };
+
+export { demo };

@@ -1,8 +1,8 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack'); //to access built-in plugins
-const fs = require('fs');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); //installed via npm
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require("webpack"); //to access built-in plugins
+const fs = require("fs");
 
 const cwd = process.cwd();
 const appDirectory = fs.realpathSync(cwd);
@@ -12,19 +12,19 @@ module.exports = {
   },
   output: {
     path: `${appDirectory}/dist`,
-    filename: '[name].js'
+    filename: "[name].js"
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: `${appDirectory}/src/index.html`,
-      title:'我的博客',
-    }),
+      title: "我的博客"
+    })
   ],
   resolve: {
     alias: {
       Actions: `${appDirectory}/src/actions/`,
-      root: `${appDirectory}/src`,
+      root: `${appDirectory}/src`
     }
   },
   module: {
@@ -33,57 +33,66 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "html-loader"
+          },
+          {
+            loader: "markdown-loader",
+            options: {
+              pedantic: true
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
-            options:{
+            loader: "css-loader",
+            options: {
               modules: true,
-              localIdentName: '[local]_[hash:base64:5]',
+              localIdentName: "[local]_[hash:base64:5]"
             }
-          },
+          }
         ]
       },
       {
         test: /\.less$/,
         use: [
           {
-            loader: 'style-loader' // creates style nodes from JS strings
+            loader: "style-loader" // creates style nodes from JS strings
           },
           {
-            loader: 'css-loader',
-            options:{
+            loader: "css-loader",
+            options: {
               modules: true,
-              localIdentName: '[local]_[hash:base64:5]',
+              localIdentName: "[local]_[hash:base64:5]"
             }
           },
           {
-            loader: 'less-loader'
+            loader: "less-loader"
           }
         ]
       },
       {
         test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader'
-        ]
-      },{
+        use: ["file-loader"]
+      },
+      {
         test: /\.(csv|tsv)$/,
-        use: [
-          'csv-loader'
-        ]
+        use: ["csv-loader"]
       },
       {
         test: /\.xml$/,
-        use: [
-          'xml-loader'
-        ]
+        use: ["xml-loader"]
       }
     ]
-  },
-}
+  }
+};

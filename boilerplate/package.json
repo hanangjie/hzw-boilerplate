@@ -23,10 +23,13 @@
     "css-loader": "^1.0.0",
     "csv-loader": "^3.0.2",
     "file-loader": "^1.1.11",
+    "html-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "markdown-loader": "^5.1.0",
     "react-dev-utils": "^6.1.1",
+    "sockjs": "^0.3.20",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.4",
     "webpack-cli": "^3.1.0",
@@ -35,6 +38,9 @@
     "xml-loader": "^1.2.1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/icons": "^4.9.1",
+    "markdown-to-jsx": "^6.11.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
